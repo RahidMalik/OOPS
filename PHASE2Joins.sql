@@ -109,3 +109,16 @@ from
     left join Visitor v on l.visitorId = v.id
 order by
     l.capturedAt desc;
+
+-- Practice Task
+SELECT
+    v.name,
+    v.email,
+    v.deviceType,
+    l.city,
+    l.country
+FROM
+    Visitor v
+    INNER JOIN Location l ON l.visitorId = v.id
+WHERE
+    l.country = 'Pakistan';
