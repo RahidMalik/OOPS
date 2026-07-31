@@ -73,11 +73,39 @@ FROM
 -- Kya hai: Ek hi table ko do baar join karna.
 -- Kyun use hota hai: Jab table ke andar relationship ho, jaise manager-employee.
 -- Visitor ki Previous Location aur Current Location ko compare karna
-SELECT
-    curr.visitorId,
-    prev.city AS starting_city,
-    curr.city AS current_city
-FROM
-    Location curr
-    JOIN Location prev ON curr.visitorId = prev.visitorId
-    AND prev.id < curr.id;
+select
+    emp.name as employee,
+    mng.name as manager
+from
+    employees emp
+    left join employees mng on emp.employee_id = mng.id;
+
+select
+    current.location as location,
+    prev.location as prevLocation
+from
+    Location current
+    left join Location prev on current.Location_id = prev.id
+    -- Query A — Har visitor ka total locations count:
+select
+    v.name,
+    v.email,
+    count(l.id) as total_locations
+from
+    visitor v
+    left join Location l on l.visitorId = v.id;
+
+-- Query B — Har location ke saath visitor info:
+select
+    l.city,
+    l.location,
+    l.capturedAt,
+    v.name as visitor_name,
+    v.email,
+    v.deviceType,
+    v.os
+from
+    Location l
+    left join Visitor v on l.visitorId = v.id
+order by
+    l.capturedAt desc;
