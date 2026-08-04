@@ -282,3 +282,11 @@ SELECT * FROM purchases WHERE user_id = 201; -- Ek record hona chahiye (course_i
 -- Case 2 ke baad (rollback hone ke baad):
 SELECT * FROM wallets WHERE user_id = 202;  -- Balance 200 hona chahiye (waapas original)
 SELECT * FROM purchases WHERE user_id = 202; -- Koi record nahi honi chahiye!
+
+last:- Practice queries
+INSERT INTO users (name, email) VALUES ('Ali', 'ali@example.com')
+ON CONFLICT (email) DO UPDATE SET name = EXCLUDED.name;
+BEGIN;
+UPDATE accounts SET balance = balance - 100 WHERE id = 1;
+UPDATE accounts SET balance = balance + 100 WHERE id = 2;
+COMMIT;
