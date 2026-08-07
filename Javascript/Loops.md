@@ -45,3 +45,25 @@ console.log(key + ':' + user[key]);
 // "name: Rahid"
 // "age : 20
 };
+
+### break & continue:
+
+for (let i = 0; i < 10; i++) {
+if (i === 5) break; // loop stop
+if (i === 3) continue; // skip this iteration
+console.log(i); // 0, 1, 2, 4
+}
+
+### Nested Loops:
+
+for (let i = 1; i <= 3; i++) {
+for (let j = 1; j <= 3; j++) {
+console.log(`i=${i}, j=${j}`);
+}
+}
+// Output:
+// i=1, j=1
+// i=1, j=2
+// i=1, j=3
+// i=2, j=1
+// ... and so on
