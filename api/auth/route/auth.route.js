@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-const authrouter = router();
+const authrouter = Router();
 
 
 authrouter.post('/', (req, res) => res.send({
