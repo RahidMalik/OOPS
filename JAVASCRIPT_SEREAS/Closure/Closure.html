@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: rgb(224, 104, 104);">
+
+    <h1>Closure</h1>
+
+    <button id="orange">orange</button>
+    <button id="green">green</button>
+    <script>
+        // function init() {
+        //     let name = "Rahid"
+        //     function innerFUnction() {
+        //         console.log(name);
+        //     }
+        //     innerFUnction();
+        // };
+        // init();
+
+        // function outer() {
+        //     let name = "Mozila firefox"
+        // }
+
+        // console.log(name);
+
+        // document.getElementById('orange'.onclick = function () {
+        //     document.body.style.backgroundColor = `orange`
+        // });
+        // document.getElementById('green'.onclick = function () {
+        //     document.body.style.backgroundColor = `green`
+        // });
+
+        function ChangeHandler(color) {
+            return function inner() {
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+
+        document.getElementById('orange').onclick = ChangeHandler("orange");
+        document.getElementById('green').onclick = ChangeHandler("green");
+
+    </script>
+</body>
+
+</html>

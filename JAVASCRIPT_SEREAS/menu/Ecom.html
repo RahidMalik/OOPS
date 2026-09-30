@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal & Sidebar Example</title>
+    <link rel="stylesheet" href="Ecom.css">
+</head>
+
+<body>
+
+
+    <nav>
+        <input class="navbarInput" type="text" placeholder="search something unique">
+    </nav>
+
+    <!-- Triggers -->
+    <button id="openSidebarBtn">Open Sidebar</button>
+    <button id="openModalBtn">Open Modal</button>
+
+    <!-- Overlay (Shared for background dimming) -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Slide-out Sidebar -->
+    <aside id="sidebar" class="sidebar">
+        <button class="close-btn" id="closeSidebarBtn">&times;</button>
+        <h2>Sidebar Menu</h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </aside>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <button class="close-btn" id="closeModalBtn">&times;</button>
+        <h2>Modal Header</h2>
+        <p>This is a modal dialog box.</p>
+    </div>
+
+    <script src="Ecom.js"></script>
+</body>
+
+</html>
