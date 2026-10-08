@@ -7,44 +7,114 @@
     <title>Document</title>
 </head>
 
-<body style="background-color: rgb(224, 104, 104);">
+<body style="background-color: rgb(45, 43, 43);">
 
     <h1>Closure</h1>
 
-    <button id="orange">orange</button>
-    <button id="green">green</button>
+    <button>orange</button>
+    <button>green</button>
     <script>
-        // function init() {
-        //     let name = "Rahid"
-        //     function innerFUnction() {
-        //         console.log(name);
-        //     }
-        //     innerFUnction();
-        // };
-        // init();
+        // function name(params) {
+        //     console.log('====================================');
+        //     console.log(`Name:${params} `);
+        //     console.log('====================================');
+        // }
+        // name("Rahid")
 
-        // function outer() {
-        //     let name = "Mozila firefox"
+
+        // function returnSomting(para) {
+        //     return function () {
+        //         return "!";
+        //     };
         // }
 
-        // console.log(name);
+        // console.log(returnSomting()()); // !
 
-        // document.getElementById('orange'.onclick = function () {
-        //     document.body.style.backgroundColor = `orange`
-        // });
-        // document.getElementById('green'.onclick = function () {
-        //     document.body.style.backgroundColor = `green`
-        // });
+        // let result = returnSomting(); // result is now inner function mean: !
+        // console.log(result); // Function anonymus
+        // console.log(result()); // !:  we should call it will callback
 
-        function ChangeHandler(color) {
-            return function inner() {
-                document.body.style.backgroundColor = `${color}`
-            }
-        }
+        // function multiplyBy(n) {
+        //     return function (x) {
+        //         return x * n; // it will remember the value of outer function: closure
+        //     };
+        // };
 
-        document.getElementById('orange').onclick = ChangeHandler("orange");
-        document.getElementById('green').onclick = ChangeHandler("green");
+        // const double = multiplyBy(2)
+        // const triple = multiplyBy(10)
+        // console.log('====================================');
+        // console.log(double(7));
+        // console.log('====================================');
+        // console.log('====================================');
+        // console.log(triple(11));
+        // console.log('====================================');
 
+        // function name1(a) {
+        //     return function name2(b) {
+        //         return function name3(c) {
+        //             return a * b % c; // 3no nazaar aty hain
+        //         };
+        //     };
+        // };
+        // console.log(name1(5)(10)(15)); // 5 * 10 = 50 % 15 = 5
+        // const greet = (a) => (b) => (c) => a % b % c;
+        // console.log(greet(2)(3)(15)); // 6
+
+        // const makeLoger = (prefix) => (level) => (message) => {
+        //     console.log(`[${prefix}]`)
+        //     console.log(` ${level}`)
+        //     console.log(`${message}`);
+        // }
+
+        // const auth = makeLoger("Auth");
+        // const authError = auth("Error");
+        //authError("Account Password Incorrect");
+
+        // const a = (x) => x * 2;          // 10 return karta hai (a(5))
+        // const b = (x) => { x * 2 };      // undefined return karta hai
+        // const c = (x) => { return x * 2 }; // 10
+
+        // Khulasa
+        //     => expression: ek hi cheez, khud return hoti hai.
+        //     => { ... }: kai lines, return khud likhna parta hai.
+        //     Parameters(level, message) sirf apne function ke andar nazar aate hain.
+        //     console.log print karta hai, value return nahi karta.
+
+
+        // function calculation(a, b, operation) {
+        //     return operation(a, b);
+        //     // a + b * operation
+        // };
+        // // calculation(2, 3, 5); // 30
+        // const add = (x, y) => x + y;
+        // const multiply = (x, y) => x * y;
+
+        // console.log(calculation(2, 5, add)); // add opera ki jaga add ki values bhj raha ha  plus kr ka
+        // console.log(calculation(2, 5, multiply)); // multiply operat ka parameter main ja raha ha multi ho kr.
+        // //  when we need complex calculation then we use parameter as a function to pass it outer function
+
+
+        // const getemail = () => "test" + "@gmail.com"
+        // const getPassword = () => 12345;
+
+        // function form(email, Password, confirmPass) {
+        //     console.log(email());
+        //     console.log(Password());
+        //     return Password() === confirmPass();
+        // };
+
+        // console.log(form(getemail, getPassword, getPassword));
+        // we pass our var function into form function and form function arg take arg as a function
+
+        // function logger(message, formatter) {
+        //     console.log(formatter(message));
+        // }
+
+        // const upper = (text) => text.toUpperCase();
+        // const withStars = (text) => `*** ${text} ***`;
+
+        // logger("password incorrect", upper);      // PASSWORD INCORRECT
+        // logger("password incorrect", withStars);  // *** password incorrect ***
     </script>
 </body>
 
