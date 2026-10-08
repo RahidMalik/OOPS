@@ -3,9 +3,10 @@ const express = require('express')
 const helmet = require('helmet')
 const morgan = require('morgan')
 const { z } = require('zod');
-
-const stripe = require('stripe')(STRIPE_SECRET_KEY);
-const { v4: uuidv4 } = require('uuid')
+configDotenv()
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const { v4: uuidv4 } = require('uuid');
+const { configDotenv } = require('dotenv');
 
 class AppError extends Error {
     constructor(message, statusCode = 500, details = null) {
